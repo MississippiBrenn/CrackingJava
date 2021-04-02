@@ -7,6 +7,39 @@ import java.util.*;
 public class StringsandArrays {
 
 
+    //if it's a square
+    public boolean rotateMatrix(int [][] matrix){
+      if(matrix.length == 0 || matrix[0].length != matrix.length){ return false; }
+      int n = matrix.length;
+      for(int layer = 0; layer < matrix.length/2; layer ++){
+
+          int first = layer;
+          int last = n -1 -layer;
+          for(int i = first; i < last; i ++) {
+              int offset = i - first;
+
+
+              int top = matrix[first][i];
+
+              //left -> top
+              matrix[first][i] = matrix[last-offset][first];
+
+              //bottom ->left
+              matrix[last-offset][first] = matrix[last][last-offset];
+
+              // right -> bottom
+              matrix[last][last-offset] = matrix[i][last];
+
+              //top -> right
+              matrix[i][last] = top;
+          }
+
+      }
+
+  return true;
+    }
+
+
     public boolean oneEditAway(String str1, String str2){
         HashMap<Character, Integer> HM = new HashMap<>();
         for(char ch:str1.toCharArray()){

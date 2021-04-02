@@ -9,7 +9,9 @@ public class Main {
         // write your code here
         StringsandArrays stringsandArrays = new StringsandArrays();
         LinkedList linkedlist = new LinkedList();
-        boolean answer = stringsandArrays.oneEditAway("abc", "abcee");
+        int[][] input = {{1, 2}, {3, 4}};
+        boolean answer = stringsandArrays.rotateMatrix(input);
         System.out.println(answer);
+
     }
 }
